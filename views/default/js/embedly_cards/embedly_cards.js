@@ -25,4 +25,9 @@ define(['require', 'jquery'], function(require, $) {
             width: $('.embedly-defaults').attr('data-width')
         }
     });
+    
+    embedly('card', {
+        selector: 'a.embedly-video',
+        types: ['rich', 'video']
+    });
 });

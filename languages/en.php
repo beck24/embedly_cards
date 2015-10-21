@@ -11,5 +11,6 @@ return array(
 	'embedly_cards:option:left' => "left",
 	'embedly_cards:option:center' => "Center",
 	'embedly_cards:setting:card_align' => "Card alignment",
-	'embedly_cards:setting:card_width' => "Max width of card"
+	'embedly_cards:setting:card_width' => "Max width of card",
+	'embedly_cards:render_video' => "Render video links as embedded video for the following content types",
 );

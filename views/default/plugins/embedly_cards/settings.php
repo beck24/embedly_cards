@@ -70,10 +70,28 @@ echo ' <label>' . elgg_echo('embedly_cards:setting:card_align') . '</label>';
 echo '</div>';
 
 echo '<div class="pvs">';
-echo ' <label>' . elgg_echo('embedly_cards:setting:card_width') . '</label>';
+echo '<label>' . elgg_echo('embedly_cards:setting:card_width') . '</label>';
 echo elgg_view('input/text', array(
 	'name' => 'params[card_width]',
 	'value' => $vars['entity']->card_width,
 	'placeholder' => 'eg. 100%, 300px'
 ));
 echo '</div>';
+
+
+$entity_views = get_entity_views();
+
+echo '<label>' . elgg_echo('embedly_cards:render_video') . '</label>';
+echo '<ul class="pbm">';
+foreach ($entity_views as $subtype) {
+	echo '<li><label>';
+	echo elgg_view('input/checkbox', array(
+		'name' => "params[video_{$subtype}]",
+		'value' => 1,
+		'checked' => (bool) $vars['entity']->{'video_'.$subtype}
+	));
+	
+	echo $subtype; 
+	echo '</label></li>';
+}
+echo '</ul>';
