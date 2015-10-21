@@ -18,8 +18,11 @@ define(['require', 'jquery'], function(require, $) {
 
     embedly("defaults", {
         cards: {
-            chrome: parseInt($('.embedly-defaults').attr('data-chrome')),
-            theme: $('.embedly-defaults').attr('data-theme')
+            chrome: $('.embedly-defaults').attr('data-chrome'),
+            theme: $('.embedly-defaults').attr('data-theme'),
+            controls: $('.embedly-defaults').attr('data-controls'),
+            align: $('.embedly-defaults').attr('data-align'),
+            width: $('.embedly-defaults').attr('data-width')
         }
     });
 });

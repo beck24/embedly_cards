@@ -54,3 +54,26 @@ echo elgg_view('input/select', array(
 
 echo ' <label>' . elgg_echo('embedly_cards:setting:card_controls') . '</label>';
 echo '</div>';
+
+echo '<div class="pvs">';
+echo elgg_view('input/select', array(
+	'name' => 'params[card_align]',
+	'value' => is_null($vars['entity']->card_align) ? 'center' : $vars['entity']->card_align,
+	'options_values' => array(
+		'left' => elgg_echo('embedly_cards:option:left'),
+		'center' => elgg_echo('embedly_cards:option:center'),
+		'right' => elgg_echo('embedly_cards:option:right')
+	)
+));
+
+echo ' <label>' . elgg_echo('embedly_cards:setting:card_align') . '</label>';
+echo '</div>';
+
+echo '<div class="pvs">';
+echo ' <label>' . elgg_echo('embedly_cards:setting:card_width') . '</label>';
+echo elgg_view('input/text', array(
+	'name' => 'params[card_width]',
+	'value' => $vars['entity']->card_width,
+	'placeholder' => 'eg. 100%, 300px'
+));
+echo '</div>';
