@@ -1,0 +1,20 @@
+{
+    "name": "beck24/embedly_cards",
+    "type": "elgg-plugin",
+    "description": "Parse video URLs and give nice displays to bookmarks",
+    "homepage": "https://github.com/beck24/embedly_cards",
+    "keywords": ["elgg", "plugin", "video", "embed", "embedly"],
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Matt Beckett"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/beck24/embedly_cards/issues"
+    },
+    "require": {
+        "php": ">=5.4",
+        "composer/installers": ">=1.0.8"
+    }
+}
