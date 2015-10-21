@@ -13,4 +13,6 @@ return array(
 	'embedly_cards:setting:card_align' => "Card alignment",
 	'embedly_cards:setting:card_width' => "Max width of card",
 	'embedly_cards:render_video' => "Render video links as embedded video for the following content types",
+	'embedly_cards:render_video:custom' => "Advanced: Custom Video Views",
+	'embedly_cards:render_video:custom:help' => "This allows you to designate specific views to parse for embeddable videos.  Enter one view name per line.  eg. 'annotation/default'"
 );

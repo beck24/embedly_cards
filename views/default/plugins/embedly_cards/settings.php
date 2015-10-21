@@ -95,3 +95,16 @@ foreach ($entity_views as $subtype) {
 	echo '</label></li>';
 }
 echo '</ul>';
+
+
+echo '<div class="pvs">';
+echo '<label>' . elgg_echo('embedly_cards:render_video:custom') . '</label>';
+echo elgg_view('input/plaintext', array(
+	'name' => 'params[custom_video_views]',
+	'value' => $vars['entity']->custom_video_views
+));
+echo elgg_view('output/longtext', array(
+	'value' => elgg_echo('embedly_cards:render_video:custom:help'),
+	'class' => 'elgg-text-help'
+));
+echo '</div>';

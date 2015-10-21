@@ -37,12 +37,17 @@ function views_parse($hook, $type, $return, $params) {
 		return $return;
 	}
 	
+	// we're potentially adding items
+	elgg_require_js('embedly_cards/embedly_cards');
+	
 	// mark all links as embedly-video and let embedly sort it out
+	libxml_use_internal_errors(true);
 	$doc = new \DOMDocument();
 	$doc->loadHTML($return);
 	foreach ($doc->getElementsByTagName('a') as $tag) {
 		$tag->setAttribute('class', ($tag->hasAttribute('class') ? $tag->getAttribute('class') . ' ' : '') . 'embedly-video');
 	}
+	libxml_clear_errors();
 	
 	return $doc->saveHTML();
 }
