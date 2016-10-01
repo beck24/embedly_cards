@@ -98,6 +98,19 @@ echo '</ul>';
 
 
 echo '<div class="pvs">';
+echo elgg_view('input/select', array(
+		'name' => 'params[internal_urls]',
+		'value' => is_null($vars['entity']->internal_urls) ? 0 : $vars['entity']->internal_urls,
+		'options_values' => array(
+				0 => elgg_echo('option:no'),
+				1 => elgg_echo('option:yes'),
+		)
+));
+echo ' <label>' . elgg_echo('embedly_cards:internal_urls') . '</label>';
+echo '</div>';
+
+
+echo '<div class="pvs">';
 echo '<label>' . elgg_echo('embedly_cards:render_video:custom') . '</label>';
 echo elgg_view('input/plaintext', array(
 	'name' => 'params[custom_video_views]',

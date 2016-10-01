@@ -16,18 +16,20 @@ define(['require', 'jquery'], function(require, $) {
     })(window, document);
 
 
-    embedly("defaults", {
-        cards: {
-            chrome: $('.embedly-defaults').attr('data-chrome'),
-            theme: $('.embedly-defaults').attr('data-theme'),
-            controls: $('.embedly-defaults').attr('data-controls'),
-            align: $('.embedly-defaults').attr('data-align'),
-            width: $('.embedly-defaults').attr('data-width')
-        }
-    });
-    
-    embedly('card', {
-        selector: 'a.embedly-video',
-        types: ['rich', 'video']
-    });
+    $(document).ready( function() {
+   		embedly("defaults", {
+   			cards: {
+   				chrome: $('.embedly-defaults').attr('data-chrome'),
+   				theme: $('.embedly-defaults').attr('data-theme'),
+   				controls: $('.embedly-defaults').attr('data-controls'),
+   				align: $('.embedly-defaults').attr('data-align'),
+   				width: $('.embedly-defaults').attr('data-width')
+   			}
+   		});
+
+   		embedly('card', {
+   			selector: 'a.embedly-video',
+   			types: ['rich', 'video', 'image', 'article']
+   		});
+	});
 });

@@ -2,5 +2,9 @@
 
 x.x
 
+1.1 (10/01/2016):
+ - optionally (by default) ignore internal urls
+ - add additional types (image/article)
+
 1.0.0 (10/21/2015):
  - Initial Release

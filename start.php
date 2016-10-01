@@ -27,7 +27,7 @@ function init() {
  * @return type
  */
 function views_parse($hook, $type, $return, $params) {
-	static $allowable_views;
+	static $allowable_views, $allow_internal;
 
 	if (!is_array($allowable_views)) {
 		$allowable_views = get_allowable_views();
@@ -35,6 +35,10 @@ function views_parse($hook, $type, $return, $params) {
 	
 	if (!in_array($type, $allowable_views)) {
 		return $return;
+	}
+	
+	if (is_null($allow_internal)) {
+		$allow_internal = elgg_get_plugin_setting('internal_urls', PLUGIN_ID, 0);
 	}
 	
 	// we're potentially adding items
@@ -45,6 +49,15 @@ function views_parse($hook, $type, $return, $params) {
 	$doc = new \DOMDocument();
 	$doc->loadHTML($return);
 	foreach ($doc->getElementsByTagName('a') as $tag) {
+		$href = $tag->hasAttribute('href') ? $tag->getAttribute('href') : null;
+		if (!$href || strpos($href, 'http') !== 0) {
+			continue;
+		}
+		
+		if (strpos($href, elgg_get_site_url()) === 0 && !$allow_internal) {
+			continue;
+		}
+		
 		$tag->setAttribute('class', ($tag->hasAttribute('class') ? $tag->getAttribute('class') . ' ' : '') . 'embedly-video');
 	}
 	libxml_clear_errors();
