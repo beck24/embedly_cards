@@ -14,4 +14,9 @@ if ($bookmark_display != 'yes') {
 	return;
 }
 
+$allow_internal = elgg_get_plugin_setting('internal_urls', PLUGIN_ID, 0);
+if (strpos($vars['entity']->address, elgg_get_site_url()) === 0 && !$allow_internal) {
+	return;
+}
+
 elgg_require_js('embedly_cards/bookmarks');
